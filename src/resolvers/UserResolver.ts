@@ -104,7 +104,7 @@ export class UserResolver {
         const userRepository = getRepository(User);
         const user = userRepository.findOne(id);
 
-        if(user) throw new Error('User not found');
+        if(!user) throw new Error('User not found');
 
         User.delete(id);
 
@@ -119,7 +119,7 @@ export class UserResolver {
         const userRepository = getRepository(User);
         const user = userRepository.findOne(id);
 
-        if(user) throw new Error('User not found');
+        if(!user) throw new Error('User not found');
 
         User.update(id, input);
 
@@ -133,7 +133,7 @@ export class UserResolver {
         const userRepository = getRepository(User);
         const user = userRepository.findOne({id: ctx.id});
 
-        if(user) throw new Error('User not found');
+        if(!user) throw new Error('User not found');
 
         return user;
     }
